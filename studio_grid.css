@@ -1,0 +1,261 @@
+:root {
+    --studio-ink: #fff;
+    --studio-accent: #f15a24;
+    --studio-gap: clamp(14px, 2vw, 22px);
+    --studio-radius: 16px;
+}
+
+/* section shell (inherits dark bg from #work) */
+.studio {
+    color: var(--studio-ink);
+    padding: clamp(2.5rem, 5vw, 4rem) 0;
+}
+
+.studio__head {
+    margin: 0 0 clamp(2rem, 4vw, 3rem) 0;
+    padding-right: clamp(2rem, 3vw, 4rem);
+    padding-left: clamp(1rem, 2vw, 2rem);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.5rem;
+    text-align: right;
+}
+
+.studio__head h2 {
+    font-family: "Anton SC", sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    font-size: clamp(2.8rem, 7vw, 5rem);
+    text-transform: uppercase;
+    color: #fff;
+    margin: 0;
+    line-height: 1.1;
+    text-align: right;
+}
+
+.studio__hint {
+    margin: 0;
+    font-family: "Epilogue", system-ui, sans-serif;
+    font-size: clamp(1rem, 1.8vw, 1.2rem);
+    color: rgba(255, 255, 255, 0.7);
+    text-align: right;
+}
+
+/* grid container */
+.studio__grid-wrap {
+    padding-inline: clamp(1rem, 4vw, 3rem);
+}
+
+.studio__grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--studio-gap);
+    max-width: 1500px;
+    margin: 0 auto;
+    padding-inline: 1.5rem;
+}
+
+/* grid item */
+.studio__item {
+    font-family: "Epilogue", system-ui, sans-serif;
+}
+
+/* thumbnail */
+.studio__thumb {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    border-radius: var(--studio-radius);
+    overflow: hidden;
+    background: #151519;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.studio__thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(0.15) saturate(1.08);
+    transition: filter 0.35s ease, transform 0.35s ease;
+}
+
+/* hover effect */
+.studio__thumb:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 28px rgba(241, 90, 36, 0.35);
+}
+
+.studio__thumb:hover img {
+    filter: none;
+    transform: scale(1.04);
+}
+
+/* title + chips container */
+.studio__title {
+    display: block;
+    margin-top: 0.55rem;
+    font-size: 0.95rem;
+    opacity: 0.9;
+    text-align: center;
+}
+
+/* tags (chips) row */
+.studio__chips {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.4rem;
+    padding: 0;
+    list-style: none;
+}
+
+/* individual chip */
+.studio__chip {
+    font-family: "Epilogue", system-ui, sans-serif;
+    font-size: 0.7rem;
+    line-height: 1;
+    padding: 0.35rem 0.6rem;
+    border-radius: 999px;
+    color: var(--studio-ink);
+    background: rgba(241, 90, 36, 0.15);
+    border: 1px solid rgba(241, 90, 36, 0.35);
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.studio__chip:hover {
+    background: rgba(241, 90, 36, 0.25);
+    border-color: rgba(241, 90, 36, 0.6);
+}
+
+/* title + year row */
+.studio__meta {
+    display: flex;
+    justify-content: center; /* centers the row */
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem; /* space between title and year */
+    margin-top: 0.55rem;
+}
+
+/* title style (unchanged from your version) */
+.studio__title {
+    font-size: 0.95rem;
+    opacity: 0.9;
+    font-family: "Epilogue", system-ui, sans-serif;
+    color: var(--studio-ink);
+    margin: 0;
+}
+
+/* year styling */
+.studio__year {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-family: "Epilogue", system-ui, sans-serif;
+    letter-spacing: 0.5px;
+}
+
+/* tags row (below the title/year) */
+.studio__chips {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.4rem;
+    padding: 0;
+    list-style: none;
+}
+
+/* individual chip */
+/*.studio__chip {*/
+/*    font-family: "Epilogue", system-ui, sans-serif;*/
+/*    font-size: 0.7rem;*/
+/*    line-height: 1;*/
+/*    padding: 0.35rem 0.6rem;*/
+/*    border-radius: 999px;*/
+/*    color: var(--studio-ink);*/
+/*    background: rgba(241, 90, 36, 0.15);*/
+/*    border: 1px solid rgba(241, 90, 36, 0.35);*/
+/*    transition: background 0.2s ease, border-color 0.2s ease;*/
+/*}*/
+
+/*.studio__chip:hover {*/
+/*    background: rgba(241, 90, 36, 0.25);*/
+/*    border-color: rgba(241, 90, 36, 0.6);*/
+/*}*/
+
+/* tag container (under project description) */
+.project__chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    margin-top: 1.2rem;
+    padding: 0;
+    list-style: none;
+}
+
+/* larger chips */
+.project__chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Epilogue", system-ui, sans-serif;
+    font-weight: 500;
+    font-size: clamp(0.9rem, 1.6vw, 1.2rem); /* ⬆️ much larger text */
+    line-height: 1.2;
+    padding: 0.6rem 1.2rem; /* ⬆️ bigger pill size */
+    border-radius: 999px;
+    color: #f15a24;
+    /*background: rgba(241, 90, 36, 0.2);*/
+    border: 2.5px solid rgba(241, 90, 36, 0.55);
+    transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+    letter-spacing: 0.3px;
+}
+
+/* hover state */
+.project__chip:hover {
+    background: rgba(241, 90, 36, 0.35);
+    border-color: rgba(241, 90, 36, 0.75);
+    transform: translateY(-3px);
+}
+
+/* for slightly tighter centering */
+.project__chips li {
+    margin: 0;
+}
+
+/* default alignment (normal sections) */
+.projet1 .project__chips {
+    justify-content: flex-start; /* ⬅️ aligns to the left for normal layout */
+}
+
+/* inverted layout alignment */
+.projet1.invert .project__chips {
+    justify-content: flex-end; /* ➡️ aligns to the right for inverted layout */
+}
+
+
+
+/* responsiveness */
+@media (max-width: 1100px) {
+    .studio__grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 720px) {
+    .studio__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 460px) {
+    .studio__grid {
+        grid-template-columns: 1fr;
+    }
+}

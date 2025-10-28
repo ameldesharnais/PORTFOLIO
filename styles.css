@@ -1,0 +1,75 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+
+.fullscreen {
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(135deg, #ff7e5f, #feb47b);
+
+    /* Flexbox setup */
+    display: flex;
+    flex-direction: column;   /* stack elements vertically */
+    justify-content: center;  /* center vertically */
+    align-items: center;      /* center horizontally */
+    gap: 1em;                 /* space between paragraphs */
+}
+
+/* Paragraph styling */
+.fullscreen p {
+    margin: 0;
+    font-size: 1.5rem;
+    color: white;
+}
+
+.fullscreen p {
+    margin: 0;
+    font-size: 1.5rem;
+    color: white;
+}
+
+
+.accueil
+{
+    color: white;
+}
+
+.accueil p
+{
+    font-family: "Epilogue", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+    font-size: clamp(1rem, 2vw, 1.25rem);
+}
+
+.accueil h1
+{
+    /* background-color: tomato;
+     text-align: center;*/
+    font-family: "Anton", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+}
+
+.titre-accueil
+{
+    display: block;
+    color: white;
+    font-size: 40px;
+    margin: 0;
+    padding: 10px;
+}
+
+.texte-accueil
+{
+    display: block;
+    color: white;
+    font-size: 20px;
+    margin: 0;
+    padding: 10px;
+}

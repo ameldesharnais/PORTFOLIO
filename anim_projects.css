@@ -1,0 +1,86 @@
+/* 🔧 quick knobs */
+:root{
+    --work-intensity: 0.48;   /* 0.38–0.55 sweet spot */
+    --work-contrast: 1.12;    /* 1.0–1.2 */
+    --work-speed: 30s;        /* lower = faster */
+}
+
+#work{
+    position: relative;
+    /*background: #0e0e10;*/
+    background: #21222a;
+    overflow: hidden;
+}
+#work > *{ position: relative; z-index: 1; }
+
+/* 💧 more, bigger, flowier blobs (no hard shapes) */
+#work::before{
+    content:"";
+    position:absolute;
+    inset:-40vmax;                 /* larger canvas so blobs drift in/out */
+    z-index:0;
+
+    /* 7 warm layers = fuller lava feel (still warm-first) */
+    background:
+            radial-gradient(58vmax 58vmax at 28% 32%, color-mix(in oklab, #ffb37a 70%, #0e0e10 30%) 0 52%, transparent 60%),
+            radial-gradient(64vmax 64vmax at 72% 38%, color-mix(in oklab, #ff8a3d 60%, #0e0e10 40%) 0 52%, transparent 60%),
+            radial-gradient(52vmax 52vmax at 42% 74%, color-mix(in oklab, #e86d3a 55%, #0e0e10 45%) 0 52%, transparent 60%),
+            radial-gradient(70vmax 70vmax at 60% 66%, color-mix(in oklab, #d65a2f 50%, #0e0e10 50%) 0 52%, transparent 60%);
+            /*radial-gradient(70vmax 70vmax at 26% 28%, #ff9a52 0 52%, transparent 64%),*/
+            /*radial-gradient(78vmax 78vmax at 76% 32%, #ff6e32 0 52%, transparent 64%),*/
+            /*radial-gradient(64vmax 64vmax at 44% 74%, #ea5a2a 0 52%, transparent 64%),*/
+            /*radial-gradient(60vmax 60vmax at 62% 66%, #ff7e3e 0 52%, transparent 66%),*/
+            /*radial-gradient(52vmax 52vmax at 20% 62%, #ffb06b 0 52%, transparent 66%),*/
+            /*radial-gradient(58vmax 58vmax at 86% 58%, #ff8444 0 52%, transparent 66%),*/
+            /*radial-gradient(46vmax 46vmax at 50% 18%, #ff9650 0 52%, transparent 66%);*/
+
+
+    background-repeat:no-repeat;
+    background-size: 220% 220%;    /* wider pan so the drift feels deeper */
+
+    /* a tad less blur so the flow is visible, more present opacity */
+    filter: blur(40px) contrast(var(--work-contrast));
+    opacity: var(--work-intensity);
+    mix-blend-mode: screen;
+    transform: translateZ(0);
+
+    /* wider, smoother movement + gentle hue wobble */
+    animation:
+            lavaDrift var(--work-speed) ease-in-out infinite,
+            lavaHue   calc(var(--work-speed) * 1.8) linear infinite;
+}
+
+/* optional: soft vignette to keep edges calm (helps text) */
+#work::after{
+    content:"";
+    position:absolute; inset:-1px; z-index:0;
+    background: radial-gradient(120vmax 90vmax at 50% 60%,
+    transparent 0 60%, rgba(0,0,0,.22) 85%);
+    pointer-events:none;
+}
+
+/* ✨ motion: bigger wander than before, still lava-smooth */
+@keyframes lavaDrift{
+    0%{
+        background-position:
+                32% 34%, 68% 36%, 46% 72%, 60% 66%, 24% 64%, 82% 60%, 48% 22%;
+    }
+    50%{
+        background-position:
+                46% 48%, 56% 42%, 52% 64%, 50% 58%, 30% 56%, 74% 54%, 52% 30%;
+    }
+    100%{
+        background-position:
+                32% 34%, 68% 36%, 46% 72%, 60% 66%, 24% 64%, 82% 60%, 48% 22%;
+    }
+}
+
+@keyframes lavaHue{
+    0%   { filter: hue-rotate(0deg)  blur(40px) contrast(var(--work-contrast)); }
+    100% { filter: hue-rotate(14deg) blur(40px) contrast(var(--work-contrast)); }
+}
+
+/* reduce motion support */
+@media (prefers-reduced-motion: reduce){
+    #work::before{ animation: none; }
+}

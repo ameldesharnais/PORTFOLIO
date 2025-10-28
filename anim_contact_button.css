@@ -1,0 +1,45 @@
+.cta-modern-contact{
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    font-size: 1.2rem;
+    font-weight: 300;
+    font-family: "Epilogue", sans-serif;;
+    /*border-radius: 999px;*/
+    color: #fff;
+    text-decoration: none;
+    background: linear-gradient(135deg, #ff6a00, #e77908);
+    box-shadow: 0 8px 20px rgba(255, 106, 0, 0.4);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    backdrop-filter: blur(8px);       /* glassy vibe */
+}
+
+.cta-modern-contact::before {
+    content: "";
+    position: absolute;
+    top: 0; left: -100%;
+    width: 200%; height: 100%;
+    background: linear-gradient(120deg,
+    transparent,
+    rgba(255,255,255,0.4),
+    transparent);
+    transform: skewX(-20deg);
+}
+
+.cta-modern-contact:hover::before {
+    animation: shine 1.2s ease forwards;
+}
+
+@keyframes shine {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+.cta-modern-contact:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 12px 28px rgba(255, 0, 127, 0.4);
+}
+
+
+

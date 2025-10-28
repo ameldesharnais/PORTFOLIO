@@ -1,0 +1,295 @@
+/* ========= Footer CTA (Karim-style) ========= */
+:root{
+    --footer-bg: white;
+    /*--footer-bg: #dcdbd3;           !* beige/grey like the reference *!*/
+    /*--footer-ink: #242424;*/
+    --footer-ink:#f15a24;
+    /*--footer-ink:#dcdbd3;*/
+    /*--footer-ink-soft: #4a4a4a;*/
+    /*--footer-line: rgba(0,0,0,.14);*/
+
+    --footer-ink-soft: #f15a24;
+    --footer-line: #f15a24;
+    --pill-bg: #2c2c2a;
+    --pill-ink: #fff;
+    --pill-bg-hover: #1f1f1d;
+    --radius-pill: 999px;
+}
+
+/* Section wrapper */
+#contact-magic.footer-cta{
+    /*background: var(--footer-bg);*/
+    background: transparent !important;
+    color: var(--footer-ink);
+    padding: clamp(4rem, 8vw, 6rem) 1.25rem 0;
+    font-family: "Epilogue", system-ui, sans-serif;
+}
+
+/* Top CTA */
+.footer-cta .cta-wrap{
+    text-align: center;
+    margin-bottom: clamp(5rem, 9vw, 9rem);
+}
+
+
+.footer-cta .cta-title{
+    font-family: "Anton SC", system-ui, sans-serif;
+    font-weight: 400;
+    letter-spacing: .02em;
+    margin: 0 0 3rem 0;
+    font-size: clamp(3rem, 8vw, 4rem);
+    color: var(--footer-ink);
+}
+.footer-cta .pill-btn{
+    display: inline-block;
+    background: var(--pill-bg);
+    color: var(--pill-ink);
+    text-decoration: none;
+    padding: 0.95rem 2.4rem;
+    border-radius: var(--radius-pill);
+    font-weight: 700;
+    font-size: clamp(.9rem, 2vw, 1rem);
+    transition: transform .25s ease, background .25s ease, box-shadow .25s ease;
+    box-shadow: 0 8px 20px rgba(0,0,0,.10);
+}
+.footer-cta .pill-btn:hover{
+    background: var(--pill-bg-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 26px rgba(0,0,0,.12);
+}
+
+/* Panels grid */
+.footer-cta .panels{
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr 1.2fr;
+    gap: 0;
+    border-top: 1px solid var(--footer-line);
+    border-bottom: 1px solid var(--footer-line);
+    margin-top: clamp(5rem, 10vw, 10rem);
+}
+.footer-cta .panel{
+    padding: 1.1rem 1rem 1.25rem;
+    border-right: 1px solid var(--footer-line);
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.footer-cta .panel:last-child{ border-right: none; }
+
+.footer-cta .panel h3{
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: .8rem;
+    letter-spacing: .12em;
+    margin: 0 0 .75rem 0;
+    color: var(--footer-ink-soft);
+}
+.footer-cta .panel .small{
+    margin: 0;
+    font-size: .85rem;
+    line-height: 1.45;
+    color: var(--footer-ink-soft);
+}
+
+
+
+/*!* Icon row *!*/
+/*.footer-cta .icon-row{*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    gap: .85rem;*/
+/*}*/
+/*.footer-cta .icon-row a{*/
+/*    display: grid;*/
+/*    place-items: center;*/
+/*    width: 36px; height: 36px;*/
+/*    border-radius: 50%;*/
+/*    !*background: #ededeb;*!*/
+/*    background: transparent;*/
+/*    color: #f15a24;*/
+/*    text-decoration: none;*/
+/*    font-size: 16px;*/
+/*    transition: transform .2s ease, background .2s ease;*/
+/*}*/
+/*.footer-cta .icon-row a:hover{*/
+/*    transform: translateY(-2px);*/
+/*    background: #f15a24;*/
+/*    color: #ededeb;*/
+/*}*/
+
+.footer-cta .icon-row a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    text-decoration: none;
+
+    border: 2px solid var(--footer-line, #f15a24); /* match your accent color */
+    background: transparent;
+    color: var(--footer-line, #f15a24);
+
+    transition: all 0.3s ease;
+}
+
+/* hover effect: fill with color, invert text */
+.footer-cta .icon-row a:hover {
+    background: var(--footer-line, #f15a24);
+    color: #0e0e10; /* background color for contrast */
+    transform: scale(1.05);
+}
+
+/* optional: smaller on mobile */
+@media (max-width: 600px) {
+    .footer-cta .icon-row a {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* If using an image instead of emoji
+.footer-cta .peep-img{
+  width: clamp(54px, 8vw, 72px);
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,.15));
+}
+*/
+
+/* Marquee (Back to top) */
+.footer-cta .marquee{
+    width: 100%;
+    border: none;
+    background: transparent;
+    padding: .75rem 0;
+    cursor: pointer;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+.footer-cta .marquee:focus-visible{
+    outline: 2px solid #000;
+    outline-offset: 2px;
+}
+.footer-cta .marquee-track{
+    --spd: 28s; /* slower = larger number */
+    font-family: "Anton SC", system-ui, sans-serif;
+    font-size: clamp(1rem, 2.6vw, 1.35rem);
+    letter-spacing: .1em;
+    color: #111;
+    opacity: .7;
+    white-space: nowrap;
+    display: inline-block;
+    animation: marquee var(--spd) linear infinite;
+}
+.footer-cta .marquee-track span{
+    display: inline-block;
+    margin: 0 .8rem;
+}
+@keyframes marquee{
+    from{ transform: translateX(0); }
+    to  { transform: translateX(-50%); }
+}
+
+/* Responsive */
+@media (max-width: 900px){
+    .footer-cta .panels{
+        grid-template-columns: 1fr 1fr;
+    }
+    .footer-cta .peeker{ display:none; } /* hide peeker on small screens if you want */
+}
+@media (max-width: 560px){
+    .footer-cta .panels{
+        grid-template-columns: 1fr;
+    }
+    .footer-cta .panel{
+        border-right: none;
+        border-bottom: 1px solid var(--footer-line);
+    }
+    .footer-cta .panel:last-child{ border-bottom: none; }
+}
+
+/* Close the frame on both sides */
+.footer-cta .panels{
+    /* previously only top/bottom */
+    border-top:    1px solid var(--footer-line);
+    border-bottom: 1px solid var(--footer-line);
+    border-left:   1px solid var(--footer-line);  /* ✅ add this */
+    border-right:  1px solid var(--footer-line);  /* ✅ add this */
+}
+
+/* Keep internal separators only between panels */
+.footer-cta .panel{
+    border-right: 1px solid var(--footer-line);
+}
+.footer-cta .panel:last-child{
+    border-right: 0; /* no double line against the wrapper’s right border */
+}
+/* close the frame on both sides */
+.footer-cta .panels{
+    border-left: 1px solid var(--footer-line);
+    border-right: 1px solid var(--footer-line);
+}
+
+/* keep internal separators only between panels */
+.footer-cta .panel{ border-right: 1px solid var(--footer-line); }
+.footer-cta .panel:last-child{ border-right: 0; }
+
+/* Tighten the #work section when the footer is inside it */
+#work{
+    /* prevents any pseudo-element or filter blur from extending the layout */
+    overflow: clip;          /* fallback if needed: overflow: hidden; */
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+    min-height: 0 !important;
+}
+
+/* if your lava effect uses a bottom-reaching ::after/::before, cancel it */
+/*#work::after,*/
+/*#work::before{*/
+/*    content: none !important;*/
+/*    display: none !important;*/
+/*}*/
+
+/* restore the lava pseudo-elements */
+#work::before { content: ""; }
+#work::after  { content: ""; }
+
+/* keep the glow inside without affecting layout */
+#work {
+    position: relative;
+    overflow: clip;        /* or overflow: hidden; if you prefer */
+}
+#work > * { position: relative; z-index: 1; }  /* content above the glow */
+#work::before,
+#work::after { pointer-events: none; }         /* just in case */
+
+
+/* footer spacing that doesn’t create a big tail */
+.footer-cta{
+    padding-bottom: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.reel__head{
+    margin-bottom: clamp(1.5rem, 3vw, 2.25rem);
+    padding-left: clamp(2.5rem, 5vw, 4rem); /* your preferred left inset */
+}
+
+
+
+
+/* Mobile stack still works — wrapper keeps its side borders */
+@media (max-width: 560px){
+    .footer-cta .panels{
+        /* side borders remain; you already switch to vertical dividers below */
+    }
+    .footer-cta .panel{
+        border-right: none;
+        border-bottom: 1px solid var(--footer-line);
+    }
+    .footer-cta .panel:last-child{ border-bottom: 0; }
+}
+

@@ -1,0 +1,64 @@
+/* Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body {
+    height: 100%;
+    /*font-family: Arial, Helvetica, sans-serif;
+    -webkit-font-smoothing: antialiased; /* for WebKit browsers */
+    -moz-osx-font-smoothing: grayscale;  /* for macOS Firefox */
+}
+
+h1 {
+    font-weight: normal;
+}
+
+/* Hero */
+.hero {
+    width: 100vw;
+    height: 100vh;
+    background: #f15a24; /* orange */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 0 1rem; /* small side padding on mobile */
+}
+
+.hero p {
+    font-weight: 300;
+    font-family: "Epilogue", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+.hero .subtitle {
+    font-size: clamp(1rem, 2vw, 1.4rem);
+    margin-bottom: 0.5rem;
+}
+
+.hero h1 {
+    font-size: clamp(3rem, 11vw, 10rem);
+    font-weight: 300;
+    margin-bottom: 1rem;
+    font-family: "Anton SC", sans-serif;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased; /* helps on macOS */
+    -moz-osx-font-smoothing: grayscale;  /* Firefox macOS */
+    text-rendering: optimizeLegibility;
+}
+
+.hero .tagline {
+    font-size: clamp(0.5rem, 2vw, 1.25rem);
+    max-width: 800px;
+    margin: 0 auto;
+    margin-bottom: 4rem;
+}
+
+
+
+/* Optional: tighten spacing on small screens */
+@media (max-width: 640px) {
+    .nav-links { gap: 1rem; }
+    .navbar { padding: 1rem 1.25rem; }
+}

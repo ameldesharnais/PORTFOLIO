@@ -1,0 +1,389 @@
+:root{
+    --reel-bg:#0e0e10;
+    --reel-ink:#fff;
+    --reel-accent:#f15a24;
+
+    /* size + spacing */
+    --reel-item-w: 340px;   /* Bigger thumbnails */
+    --reel-gap: 28px;       /* Slightly more spacing */
+    --reel-radius: 18px;
+
+    /* animation vars (set also from JS) */
+    --reel-speed: 120s;
+    --reel-distance:50%;
+
+    --reel-gutter: clamp(0.75rem, 2.5vw, 1.25rem);
+}
+
+.reel,
+.reel__mask,
+.reel__track,
+.reel__item {
+    background: transparent !important;
+}
+
+#work .projects { margin-bottom: 0; padding-bottom: clamp(1rem, 3vw, 2rem); }
+#work .reel     { margin-top: 0;    padding-top:  clamp(1rem, 3vw, 2rem); }
+
+.reel{
+    /*background:var(--reel-bg);*/
+    color:var(--reel-ink);
+    padding:clamp(2.5rem,5vw,4rem) 0;
+}
+
+.reel__head{
+    /*margin:0 auto clamp(1rem,2.5vw,1.25rem);*/
+    /*max-width:1200px;*/
+    /*padding-inline:clamp(1rem,4vw,3rem);*/
+    /*display:flex;align-items:baseline;gap:1rem;*/
+
+    /*margin: 0 0 clamp(0.75rem, 1.5vw, 1rem) 0;*/
+    /*margin: 0 0 clamp(2rem, 4vw, 3rem) 0;*/
+    /*padding-left: clamp(2rem, 3vw, 4rem);*/
+    /*!*padding-left: var(--reel-gutter);*!*/
+    /*padding-right: var(--reel-gutter);*/
+    /*display: flex;*/
+    /*align-items: baseline;*/
+    /*gap: .9rem;*/
+
+    margin: 0 0 clamp(2rem, 4vw, 3rem) 0;
+    padding-right: clamp(2rem, 3vw, 4rem);
+    padding-left: clamp(1rem, 2vw, 2rem);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    text-align: right;
+}
+.reel__head h2{
+    /*margin:0;*/
+    /*font:400 clamp(1.4rem,3.6vw,2rem) "Anton SC",system-ui,sans-serif;*/
+    /*letter-spacing:.5px;*/
+
+    /*font-family: "Anton SC", sans-serif;*/
+    /*font-weight: 400;*/
+    /*letter-spacing: .5px;*/
+    /*margin: 0;*/
+    /*font-size: clamp(2.2rem, 6.5vw, 3.8rem); !* bigger *!*/
+    /*text-transform: uppercase;               !* optional—remove if you don't want caps *!*/
+    /*color: #fff;*/
+
+    font-family: "Anton SC", sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    font-size: clamp(2.8rem, 7vw, 5rem);
+    text-transform: uppercase;
+    color: #fff;
+    margin: 0;
+    line-height: 1.1;
+    text-align: right;
+}
+.reel__hint{
+    /*margin:0;opacity:.7;*/
+    /*font-family:"Epilogue",system-ui,sans-serif;*/
+    /*font-size:clamp(.85rem,1.8vw,.95rem);*/
+
+    /*margin: 0;*/
+    /*font-family: "Epilogue", system-ui, sans-serif;*/
+    /*font-size: clamp(.9rem, 1.6vw, 1rem);*/
+    /*color: rgba(255,255,255,.75);*/
+
+    margin: 0;
+    font-family: "Epilogue", system-ui, sans-serif;
+    font-size: clamp(1rem, 1.8vw, 1.2rem);
+    color: rgba(255, 255, 255, 0.7);
+    text-align: right;
+}
+
+/* viewport */
+.reel__mask{
+    position:relative;
+    /*overflow:hidden;*/
+    overflow: visible;
+    padding-left: var(--reel-gutter);
+    padding-right: var(--reel-gutter);
+    /* fade edges */
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent);
+    mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent);
+}
+
+/* track */
+.reel__track{
+    display:flex;gap:var(--reel-gap);
+    width:max-content;
+    padding-block:.5rem;
+    will-change:transform;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.reel__track.is-ready{
+    animation:reelScroll var(--reel-speed) linear infinite;
+}
+/*.reel:hover .reel__track.is-ready{ animation-play-state:paused; }*/
+
+/* Pause scroll ONLY when a thumbnail is hovered */
+.reel__thumb:hover ~ .reel__track.is-ready,
+.reel__track:hover .reel__thumb:hover {
+    animation-play-state: paused;
+}
+
+@keyframes reelScroll{
+    from{ transform:translateX(0); }
+    to  { transform:translateX(calc(-1*var(--reel-distance))); }
+}
+
+/* items */
+.reel__item{
+    width:var(--reel-item-w);
+    flex:0 0 var(--reel-item-w);
+    text-align:center;
+    font-family:"Epilogue",system-ui,sans-serif;
+}
+
+/*.reel__thumb{*/
+/*    display:block;*/
+/*    !*aspect-ratio:16/9;*!*/
+/*    aspect-ratio: 5/3;  !* instead of 16/9 for more cinematic width *!*/
+/*    border-radius:var(--reel-radius);*/
+/*    overflow:hidden;*/
+/*    background:#151519;*/
+/*    box-shadow:0 4px 16px rgba(0,0,0,.35);*/
+/*    transition:transform .35s ease, box-shadow .35s ease;*/
+/*    text-decoration:none;     !* 🔒 no purple underline *!*/
+/*    color:inherit;*/
+/*}*/
+
+.reel__thumb {
+    display: block;
+    aspect-ratio: 2/3; /* 🎞️ poster format */
+    border-radius: var(--reel-radius);
+    overflow: hidden;
+    /*overflow: visible;*/
+    background: #151519;
+    box-shadow: 0 4px 24px rgba(0,0,0,.45);
+    transition: transform .35s ease, box-shadow .35s ease;
+    text-decoration: none;
+    color: inherit;
+}
+
+.reel__thumb img{
+    width:100%;height:100%;object-fit:cover;display:block;
+    filter:grayscale(.15) saturate(1.08);
+    transition:filter .35s ease, transform .35s ease;
+}
+.reel__thumb:hover{
+    transform:translateY(-4px);
+    box-shadow:0 10px 28px rgba(241,90,36,.35);
+}
+.reel__thumb:hover img{
+    filter:none; transform:scale(1.03);
+}
+
+.reel__title{
+    display:block;margin-top:.55rem;
+    font-size:.95rem;opacity:.9;
+}
+
+/*.reel__track.is-ready {*/
+/*    animation: reelScroll var(--reel-speed) cubic-bezier(0.4, 0, 0.2, 1) infinite;*/
+/*}*/
+
+.reel__track.is-ready {
+    animation: reelScroll var(--reel-speed) linear infinite; /* linear = constant speed */
+}
+
+
+/* The outer scroller (the element you’ll drag) */
+.subs-scroller{
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    cursor: grab;
+    touch-action: pan-y;              /* lets vertical page scroll still work */
+    /* Optional padding for a little breathing room */
+    padding-bottom: .25rem;
+}
+
+/* while dragging */
+.subs-scroller.is-dragging{
+    cursor: grabbing;
+    scroll-behavior: auto;            /* don’t fight the user while dragging */
+}
+
+/* hide the horizontal scrollbar (webkit) */
+.subs-scroller::-webkit-scrollbar{ height: 0; }
+
+/* Mask just clips overflow vertically if you use shadows/etc. */
+.reel__mask{
+    overflow: visible;                 /* important: let horizontal overflow show */
+}
+
+/* The track: lay out cards in one row */
+.reel__track{
+    display: flex;
+    gap: clamp(.75rem, 1.8vw, 1.25rem);
+    flex-wrap: nowrap;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    /* Make width match content so horizontal overflow exists */
+    width: max-content;
+}
+
+/* Each thumbnail/card item */
+.reel__track > li{
+    flex: 0 0 auto;                    /* don’t shrink, stay side-by-side */
+    scroll-snap-align: start;
+}
+
+
+
+/* responsive */
+@media (max-width:1100px){
+    :root{ --reel-item-w:200px; --reel-gap:18px; }
+}
+@media (max-width:720px){
+    :root{ --reel-item-w:165px; --reel-gap:14px; }
+}
+@media (max-width:480px){
+    :root{ --reel-item-w:145px; --reel-gap:12px; }
+}
+
+/* reduced motion */
+@media (prefers-reduced-motion:reduce){
+    .reel__track.is-ready{ animation:none; }
+}
+
+/*!* Make the mask shrink-wrap the wide track so the outer scroller can scroll *!*/
+/*.reel__mask{*/
+/*    display: inline-block;     !* shrink-wrap *!*/
+/*    width: max-content;        !* match the track’s real width *!*/
+/*    overflow: visible;         !* keep your nice shadow/edge effects *!*/
+/*}*/
+
+/* make the mask the horizontal scroller */
+.subs-scroller .reel__mask{
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: auto; /* don't animate while we drag */
+    pointer-events: auto;  /* ensure we can grab it */
+    cursor: grab;
+}
+
+.subs-scroller .reel__mask.is-dragging{
+    cursor: grabbing;
+    user-select: none;
+}
+
+/* optional: hide scrollbar without disabling scroll */
+.subs-scroller .reel__mask::-webkit-scrollbar{ height: 0; }
+
+
+/* the viewport */
+.subs-scroller .reel__mask{
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: auto;
+    pointer-events: auto;
+    cursor: grab;
+}
+.subs-scroller .reel__mask.is-dragging{ cursor: grabbing; user-select: none; }
+
+/* the moving strip */
+.reel__track{
+    display: flex;              /* <= flex is the most reliable here */
+    gap: clamp(12px, 1.6vw, 24px);
+    /* prevent flex wrapping so width > mask on desktop */
+    flex-wrap: nowrap;
+}
+
+/* each card/thumb stays its own width and doesn’t shrink */
+.reel__track > *{
+    flex: 0 0 auto;
+}
+
+/* prevent images from becoming “draggable” on desktop */
+.reel__track img{
+    pointer-events: none;
+    -webkit-user-drag: none;
+    user-select: none;
+}
+
+/* make sure the container can actually scroll horizontally */
+.subs-scroller .reel__mask{
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: auto;     /* avoid smooth-scroll fighting our teleports */
+    cursor: grab;
+}
+.subs-scroller .reel__mask.is-dragging{ cursor: grabbing; }
+
+/* make items lay out in a single row and never shrink */
+.reel__track{ display:flex; }
+.reel__track > *{ flex: 0 0 auto; }
+
+/* stop native drags/select from stealing the gesture */
+.reel__track, .reel__track *{
+    -webkit-user-drag: none;
+    user-select: none;
+}
+
+.subs-scroller .reel__mask{
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: auto;     /* IMPORTANT: avoid smooth scroll fighting teleports */
+    cursor: grab;
+    -webkit-overflow-scrolling: touch;
+}
+.subs-scroller .reel__mask.is-dragging{ cursor: grabbing; }
+
+.reel__track{ display:flex; }
+.reel__track > *{ flex: 0 0 auto; }
+
+.reel__track, .reel__track *{
+    -webkit-user-drag: none;
+    user-select: none;
+}
+
+
+/* The viewport that scrolls horizontally */
+.reel__mask{
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: auto;              /* no smooth-scroll fighting the JS */
+    overscroll-behavior-x: contain;     /* avoid browser rubber-band */
+    cursor: grab;
+}
+.reel__mask.is-dragging{
+    cursor: grabbing;
+    user-select: none;
+}
+
+/* The row */
+.reel__track{
+    display: inline-flex;   /* or flex; either is fine */
+    gap: clamp(12px, 2vw, 20px);
+    /* IMPORTANT: remove any animation here (was used by the old marquee) */
+    animation: none !important;
+}
+
+
+/* The area you drag (your .reel__mask) */
+.reel__mask{
+    /* allow normal vertical page scroll, but we take over horizontal */
+    touch-action: pan-y;
+    user-select: none;
+    -webkit-user-drag: none;
+    -webkit-tap-highlight-color: transparent;
+    cursor: grab;
+}
+.reel__mask:active { cursor: grabbing; }
+
+/* Prevent images from starting native drag previews */
+.reel__mask img { pointer-events: none; }
+
+
