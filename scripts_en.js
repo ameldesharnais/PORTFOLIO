@@ -168,7 +168,7 @@ $(function () {
 const projects = [
     {
         title: "Sherwood × October's Very Own",
-        text: "In collaboration with Réservoir Audio",
+        text: "Project at Réservoir Audio.",
         video: "https://player.vimeo.com/video/1084336528?h=c195e369fb",
         tags: ["SOUND DESIGN", "MIX"],
         width: 697,
@@ -177,7 +177,7 @@ const projects = [
 
     {
         title: "PUMA × FORMULA 1",
-        text: "In collaboration with Réservoir Audio",
+        text: "Project at Réservoir Audio.",
         video: "https://player.vimeo.com/video/1104570769?h=1260a8a708",
         tags: ["SOUND DESIGN", "MIX"],
         width: 697,
@@ -186,7 +186,7 @@ const projects = [
 
     {
         title: "October's Very Own × WNBA",
-        text: "In collaboration with Réservoir Audio",
+        text: "Project at Réservoir Audio.",
         video: "https://player.vimeo.com/video/1093861951?h=3413530c5f",
         tags: ["SOUND DESIGN", "MIX"],
         width: 248,
@@ -195,7 +195,7 @@ const projects = [
 
     {
         title: "CAMAQ AEROSPATIALE",
-        text: "In collaboration with Réservoir Audio",
+        text: "Project at Réservoir Audio.",
         video: "https://www.youtube.com/embed/GLj3fNteAbs?si=BdpukUOh9FpleM6A",
         tags: ["SOUND DESIGN"],
         width: 697,
@@ -204,7 +204,7 @@ const projects = [
 
     {
         title: "STUKELY - DEMO REEL 2025",
-        text: "In collaboration with Réservoir Audio",
+        text: "Project at Réservoir Audio.",
         video: "https://player.vimeo.com/video/1065983306?h=fe56a5e7d3",
         tags: ["SOUND DESIGN", "MIX"],
         width: 697,
@@ -213,7 +213,7 @@ const projects = [
 
     {
         title: "DIVING CANADA - LYSANNE RICHARD",
-        text: "In collaboration with Réservoir Audio",
+        text: "Project at Réservoir Audio.",
         video: "https://player.vimeo.com/video/1120839490?h=85ec468af1",
         tags: ["SOUND DESIGN"],
         width: 697,
@@ -222,7 +222,7 @@ const projects = [
 
     {
         title: "FESTIF! AFTERMOVIE - 16th EDITION",
-        text: "Sound design of the animated maps • In collaboration with Réservoir Audio",
+        text: "Sound design of the animated maps • Project at Réservoir Audio.",
         video: "https://www.youtube.com/embed/rTF6DZ8v2CI?si=oaXvIoLKScieYWsa",
         tags: ["SOUND DESIGN"],
         width: 560,
@@ -231,7 +231,7 @@ const projects = [
 
     {
         title: "RÊVE TON FUTUR - TOBI",
-        text: "In collaboration with Réservoir Audio",
+        text: "Project at Réservoir Audio.",
         video: "https://www.youtube.com/embed/boms1JLVgsM?si=rVA39jok2SL-M7bM",
         tags: ["SOUND DESIGN", "DIALOG EDITING", "PREMIX"],
         width: 560,
@@ -240,7 +240,7 @@ const projects = [
 
     {
         title: "MANO A MANO - PODCAST",
-        text: "In collaboration with Réservoir Audio.",
+        text: "Project at Réservoir Audio.",
         video: "https://www.youtube.com/embed/6WXP3eEs0u8?si=EOKSH63uaEzIxEBe",
         tags: ["SOUND DESIGN", "DIALOG EDITING"],
         width: 560,
@@ -249,7 +249,7 @@ const projects = [
 
     {
         title: "COMPLÈTEMENT LYCÉE - SEASON 2 & 3",
-        text: "In collaboration with Réservoir Audio.",
+        text: "Project at Réservoir Audio.",
         video: "https://www.youtube.com/embed/qug2Xkqwe9Q?si=j0VC0iIUsSFfWg6S",
         tags: ["DIALOG SYNCING", "DIALOG EDITING"],
         width: 560,
