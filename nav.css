@@ -1289,8 +1289,45 @@ header
 }
 
 
+/* Ensure the X is always clickable */
+.mobile-drawer .drawer-close{
+    position: absolute !important;
+    top: clamp(0.75rem, 2vw, 1rem) !important;
+    right: clamp(1rem, 3vw, 1.5rem) !important;
+    z-index: 1005 !important;  /* above socials */
+}
 
+/* Socials pinned top-left without blocking the X */
+.mobile-drawer .mobile-socials{
+    position: absolute !important;
+    top: clamp(0.75rem, 2vw, 1rem) !important;
+    left: clamp(1rem, 4vw, 2rem) !important;
 
+    width: auto !important;            /* override any width:100% */
+    right: auto !important;
+    bottom: auto !important;
+
+    display: flex !important;
+    gap: 1.25rem !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    z-index: 1002 !important;
+
+    /* don't intercept clicks outside the icons */
+    pointer-events: none !important;
+}
+.mobile-drawer .mobile-socials a{
+    pointer-events: auto !important;    /* re-enable for the icons */
+    color: #f15a24 !important;
+    font-size: 1.4rem !important;
+    text-decoration: none !important;
+}
+
+/* keep menu cleared from top row */
+.mobile-drawer .mobile-list{
+    margin-top: 4.5rem !important;
+}
 
 
 
