@@ -168,7 +168,7 @@ $(function () {
 const projects = [
     {
         title: "Sherwood × October's Very Own",
-        text: "En collaboration avec Réservoir Audio.",
+        text: "Projet chez Réservoir Audio.",
         video: "https://player.vimeo.com/video/1084336528?h=c195e369fb",
         tags: ["CONCEPTION SONORE", "MIX"],
         width: 697,
@@ -177,7 +177,7 @@ const projects = [
 
     {
         title: "PUMA × FORMULA 1",
-        text: "En collaboration avec Réservoir Audio.",
+        text: "Projet chez Réservoir Audio.",
         video: "https://player.vimeo.com/video/1104570769?h=1260a8a708",
         tags: ["CONCEPTION SONORE", "MIX"],
         width: 697,
@@ -186,7 +186,7 @@ const projects = [
 
     {
         title: "October's Very Own × WNBA",
-        text: "En collaboration avec Réservoir Audio.",
+        text: "Projet chez Réservoir Audio.",
         video: "https://player.vimeo.com/video/1093861951?h=3413530c5f",
         tags: ["CONCEPTION SONORE", "MIX"],
         width: 248,
@@ -195,7 +195,7 @@ const projects = [
 
     {
         title: "CAMAQ AEROSPATIALE",
-        text: "En collaboration avec Réservoir Audio.",
+        text: "Projet chez Réservoir Audio.",
         video: "https://www.youtube.com/embed/GLj3fNteAbs?si=BdpukUOh9FpleM6A",
         tags: ["CONCEPTION SONORE"],
         width: 697,
@@ -204,7 +204,7 @@ const projects = [
 
     {
         title: "STUKELY - DEMO REEL 2025",
-        text: "En collaboration avec Réservoir Audio.",
+        text: "Projet chez Réservoir Audio.",
         video: "https://player.vimeo.com/video/1065983306?h=fe56a5e7d3",
         tags: ["CONCEPTION SONORE", "MIX"],
         width: 697,
@@ -213,7 +213,7 @@ const projects = [
 
     {
         title: "PLONGEON CANADA - LYSANNE RICHARD",
-        text: "En collaboration avec Réservoir Audio.",
+        text: "Projet chez Réservoir Audio.",
         video: "https://player.vimeo.com/video/1120839490?h=85ec468af1",
         tags: ["CONCEPTION SONORE"],
         width: 697,
@@ -222,7 +222,7 @@ const projects = [
 
     {
         title: "FESTIF! AFTERMOVIE - 16e ÉDITION",
-        text: "Conception sonore des cartes interactives • En collaboration avec Réservoir Audio.",
+        text: "Conception sonore des cartes interactives • Projet chez Réservoir Audio.",
         video: "https://www.youtube.com/embed/rTF6DZ8v2CI?si=oaXvIoLKScieYWsa",
         tags: ["CONCEPTION SONORE"],
         width: 560,
@@ -231,7 +231,7 @@ const projects = [
 
     {
         title: "RÊVE TON FUTUR - TOBI",
-        text: "En collaboration avec Réservoir Audio.",
+        text: "Projet chez Réservoir Audio.",
         video: "https://www.youtube.com/embed/boms1JLVgsM?si=rVA39jok2SL-M7bM",
         tags: ["CONCEPTION SONORE", "MONTAGE DIALOGUE", "PREMIX"],
         width: 560,
@@ -240,7 +240,7 @@ const projects = [
 
     {
         title: "MANO A MANO - PODCAST",
-        text: "En collaboration avec Réservoir Audio.",
+        text: "Projet chez Réservoir Audio.",
         video: "https://www.youtube.com/embed/6WXP3eEs0u8?si=EOKSH63uaEzIxEBe",
         tags: ["CONCEPTION SONORE", "MONTAGE DIALOGUE"],
         width: 560,
@@ -249,7 +249,7 @@ const projects = [
 
     {
         title: "COMPLÈTEMENT LYCÉE - SAISON 2 & 3",
-        text: "En collaboration avec Réservoir Audio.",
+        text: "Projet chez Réservoir Audio.",
         video: "https://www.youtube.com/embed/qug2Xkqwe9Q?si=j0VC0iIUsSFfWg6S",
         tags: ["POSTSYNCHRONISTION", "MONTAGE DIALOGUE"],
         width: 560,
@@ -1332,6 +1332,24 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 120);
     });
 })('.subs-scroller');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
