@@ -807,10 +807,10 @@ document.addEventListener('click', (e) => {
 //     });
 // });
 
-window.addEventListener('load', () => {
-  const cleanPath = window.location.pathname.replace(/index\.html$/, '').replace(/\/fr\.html$/, '/fr/').replace(/\/en\.html$/, '/en/');
-  history.replaceState(null, '', cleanPath);
-});
+// window.addEventListener('load', () => {
+//   const cleanPath = window.location.pathname.replace(/index\.html$/, '').replace(/\/fr\.html$/, '/fr/').replace(/\/en\.html$/, '/en/');
+//   history.replaceState(null, '', cleanPath);
+// });
 
 
 
