@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // If you are currently on index.html (English default)
     if (window.location.pathname.endsWith("index.html") || window.location.pathname === "/") {
         if (lang === "fr") {
-            window.location.href = "PORTFOLIO_FR.html"; // redirect to your French page
+            window.location.href = "fr.html"; // redirect to your French page
         }
     }
     // Or if you’re on fr.html and user’s language is English, send back:
