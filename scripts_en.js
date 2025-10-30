@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
     // Or if you’re on fr.html and user’s language is English, send back:
-    else if (window.location.pathname.endsWith("fr")) {
+    else if (window.location.pathname.endsWith("/fr")) {
         if (lang === "en") {
             window.location.href = "index.html";
         }
