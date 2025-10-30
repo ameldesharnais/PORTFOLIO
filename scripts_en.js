@@ -1,23 +1,23 @@
-// document.addEventListener("DOMContentLoaded", () => {
-//     // Detect browser language (e.g., "en", "fr", "en-CA", "fr-FR")
-//     const userLang = navigator.language || navigator.userLanguage;
+document.addEventListener("DOMContentLoaded", () => {
+    // Detect browser language (e.g., "en", "fr", "en-CA", "fr-FR")
+    const userLang = navigator.language || navigator.userLanguage;
 
-//     // Normalize to just the first two letters
-//     const lang = userLang.substring(0, 2).toLowerCase();
+    // Normalize to just the first two letters
+    const lang = userLang.substring(0, 2).toLowerCase();
 
-//     // If you are currently on index.html (English default)
-//     if (window.location.pathname.endsWith("index.html") || window.location.pathname === "/") {
-//         if (lang === "fr") {
-//             window.location.href = "PORTFOLIO_FR.html"; // redirect to your French page
-//         }
-//     }
-//     // Or if you’re on fr.html and user’s language is English, send back:
-//     else if (window.location.pathname.endsWith("PORTFOLIO_FR.html")) {
-//         if (lang === "en") {
-//             window.location.href = "index.html";
-//         }
-//     }
-// });
+    // If you are currently on index.html (English default)
+    if (window.location.pathname.endsWith("index.html") || window.location.pathname === "/") {
+        if (lang === "fr") {
+            window.location.href = "PORTFOLIO_FR.html"; // redirect to your French page
+        }
+    }
+    // Or if you’re on fr.html and user’s language is English, send back:
+    else if (window.location.pathname.endsWith("PORTFOLIO_FR.html")) {
+        if (lang === "en") {
+            window.location.href = "index.html";
+        }
+    }
+});
 
 
 
