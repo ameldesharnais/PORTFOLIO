@@ -792,19 +792,24 @@ document.addEventListener('click', (e) => {
     history.replaceState(null, '', location.pathname + location.search);
 });
 
-// Language switcher: load /fr or /en cleanly (no trailing filename)
-document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-        e.preventDefault(); // stop default navigation
+// // Language switcher: load /fr or /en cleanly (no trailing filename)
+// document.querySelectorAll('.lang-btn').forEach(btn => {
+//     btn.addEventListener('click', (e) => {
+//         e.preventDefault(); // stop default navigation
 
-        // Check current language
-        const isFrench = window.location.pathname.includes('/fr');
-        const newLang = isFrench ? '/en' : '/fr';
+//         // Check current language
+//         const isFrench = window.location.pathname.includes('/fr');
+//         const newLang = isFrench ? '/en' : '/fr';
 
-        // Redirect cleanly to base + newLang (without extra filename or hash)
-        const base = window.location.origin;
-        window.location.href = base + newLang + '/';
-    });
+//         // Redirect cleanly to base + newLang (without extra filename or hash)
+//         const base = window.location.origin;
+//         window.location.href = base + newLang + '/';
+//     });
+// });
+
+window.addEventListener('load', () => {
+  const cleanPath = window.location.pathname.replace(/index\.html$/, '').replace(/\/fr\.html$/, '/fr/').replace(/\/en\.html$/, '/en/');
+  history.replaceState(null, '', cleanPath);
 });
 
 
