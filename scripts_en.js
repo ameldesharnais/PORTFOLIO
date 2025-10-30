@@ -1,23 +1,23 @@
-document.addEventListener("DOMContentLoaded", () => {
-    // Detect browser language (e.g., "en", "fr", "en-CA", "fr-FR")
-    const userLang = navigator.language || navigator.userLanguage;
+// document.addEventListener("DOMContentLoaded", () => {
+//     // Detect browser language (e.g., "en", "fr", "en-CA", "fr-FR")
+//     const userLang = navigator.language || navigator.userLanguage;
 
-    // Normalize to just the first two letters
-    const lang = userLang.substring(0, 2).toLowerCase();
+//     // Normalize to just the first two letters
+//     const lang = userLang.substring(0, 2).toLowerCase();
 
-    // If you are currently on index.html (English default)
-    if (window.location.pathname.endsWith("index.html") || window.location.pathname === "/") {
-        if (lang === "fr") {
-            window.location.href = "PORTFOLIO_FR.html"; // redirect to your French page
-        }
-    }
-    // Or if you’re on fr.html and user’s language is English, send back:
-    else if (window.location.pathname.endsWith("PORTFOLIO_FR.html")) {
-        if (lang === "en") {
-            window.location.href = "index.html";
-        }
-    }
-});
+//     // If you are currently on index.html (English default)
+//     if (window.location.pathname.endsWith("index.html") || window.location.pathname === "/") {
+//         if (lang === "fr") {
+//             window.location.href = "PORTFOLIO_FR.html"; // redirect to your French page
+//         }
+//     }
+//     // Or if you’re on fr.html and user’s language is English, send back:
+//     else if (window.location.pathname.endsWith("PORTFOLIO_FR.html")) {
+//         if (lang === "en") {
+//             window.location.href = "index.html";
+//         }
+//     }
+// });
 
 
 
@@ -296,217 +296,6 @@ $(function () {
 
 
 
-//CARROUSSEL
-//
-// $(function() {
-//         /* -------------------------------------------------------
-//         Subtitling Reel – robust build + constant-speed scroll
-//         -------------------------------------------------------
-//         HOW TO CONTROL SPEED:
-//         - Default: CSS controls speed via :root { --reel-speed: 120s; }
-//         - If you want JS to control it, set USE_CSS_SPEED = false
-//         and tweak SPEED_MULTIPLIER / BASE_PX_PER_SEC.
-//         -------------------------------------------------------- */
-//
-//         // 0) CONFIG
-//         const USE_CSS_SPEED   = true;  // 👈 leave true if you want :root --reel-speed to win
-//         const SPEED_MULTIPLIER = 3;    // only used when USE_CSS_SPEED === false
-//         const BASE_PX_PER_SEC  = 110;  // ~110px/s baseline; higher = faster (when JS controls)
-//
-//         // 1) Your subtitling items
-//         // If you already define subtitleProjects elsewhere, remove this block.
-//         const subtitleProjects = (window.subtitleProjects ?? [
-//         { title: "Complètement Lycée : Season 2",      thumb: "assets/completement_lycee_S02.jpg",      url: "#work" },
-//         { title: "Complètement Lycée : Season 3",      thumb: "assets/completement_lycee_S03.jpg",      url: "#work" },
-//         { title: "À bout d'bras : la petite histoire d'un patrimoine festif!", thumb: "assets/aboutdebrasfestif.jpg", url: "#work" },
-//         { title: "Papa(s)",     thumb: "assets/papas.jpg",     url: "#work" },
-//         { title: "Neglected", thumb: "assets/neglected.jpg",    url: "#work" },
-//         { title: "Plaza Plaisir : Season 1 (promos)", thumb: "assets/plaza_plaisir2.jpg",    url: "#work" },
-//         ]);
-//
-//         // 2) Build the reel
-//         (function initReel(){
-//         const track = document.getElementById('reelTrack');
-//         const mask  = track?.closest('.reel__mask');
-//         if (!track || !mask) return;
-//
-//         // Render a single set (no lazyload to avoid start delay)
-//         const render = arr => arr.map(p => `
-//     <li class="reel__item">
-//       <div class="reel__thumb" href="${p.url}" aria-label="${p.title}">
-//         <img src="${p.thumb}" alt="${p.title} — subtitling" width="320" height="180" decoding="async">
-//       </div>
-//       <span class="reel__title">${p.title}</span>
-//     </li>
-//   `).join('');
-//
-//         function build() {
-//         // Reset to one set
-//         track.classList.remove('is-ready');
-//         track.innerHTML = render(subtitleProjects);
-//
-//         // Duplicate until the track exceeds ~2× viewport width
-//         const vw = mask.clientWidth;
-//         let TW = track.scrollWidth;
-//         const oneSet = track.innerHTML;
-//         let safety = 16; // avoid runaway loops
-//
-//         while (TW < vw * 2.1 && safety-- > 0) {
-//         track.insertAdjacentHTML('beforeend', oneSet);
-//         TW = track.scrollWidth;
-//     }
-//
-//         // Seamless distance = half of final width
-//         const distance = track.scrollWidth / 2; // px
-//         track.style.setProperty('--reel-distance', distance + 'px');
-//
-//         // SPEED: either respect CSS variable or compute in JS
-//         if (!USE_CSS_SPEED) {
-//         const seconds = Math.max(
-//         22,
-//         Math.round(distance / BASE_PX_PER_SEC) * SPEED_MULTIPLIER
-//         );
-//         track.style.setProperty('--reel-speed', seconds + 's');
-//     } else {
-//         // Make sure we don't accidentally keep an old JS override
-//         track.style.removeProperty('--reel-speed');
-//     }
-//
-//         // Start animation (constant speed is ensured by CSS: linear)
-//         track.classList.add('is-ready');
-//
-//
-//     }
-//
-//         build();
-//
-//             // 🧠 Pause animation only when hovering over a thumbnail
-//             track.addEventListener('mouseover', e => {
-//                 if (e.target.closest('.reel__thumb')) {
-//                     track.style.animationPlayState = 'paused';
-//                 }
-//             });
-//             track.addEventListener('mouseout', e => {
-//                 if (e.target.closest('.reel__thumb')) {
-//                     track.style.animationPlayState = 'running';
-//                 }
-//             });
-//
-//         // Rebuild on resize (debounced by rAF)
-//         let raf;
-//         window.addEventListener('resize', () => {
-//         cancelAnimationFrame(raf);
-//         raf = requestAnimationFrame(build);
-//     });
-//     })();
-//
-//
-// });
-
-// $(function() {
-//         /* -------------------------------------------------------
-//         Subtitling Reel – robust build + constant-speed scroll
-//         -------------------------------------------------------
-//         HOW TO CONTROL SPEED:
-//         - Default: CSS controls speed via :root { --reel-speed: 120s; }
-//         - If you want JS to control it, set USE_CSS_SPEED = false
-//         and tweak SPEED_MULTIPLIER / BASE_PX_PER_SEC.
-//         -------------------------------------------------------- */
-//
-//         // 0) CONFIG
-//         const USE_CSS_SPEED   = true;  // 👈 leave true if you want :root --reel-speed to win
-//         const SPEED_MULTIPLIER = 3;    // only used when USE_CSS_SPEED === false
-//         const BASE_PX_PER_SEC  = 110;  // ~110px/s baseline; higher = faster (when JS controls)
-//
-//         // 1) Your subtitling items
-//         // If you already define subtitleProjects elsewhere, remove this block.
-//         const subtitleProjects = (window.subtitleProjects ?? [
-//         { title: "Complètement Lycée : Season 2",      thumb: "assets/completement_lycee_S02.jpg",      url: "#work" },
-//         { title: "Complètement Lycée : Season 3",      thumb: "assets/completement_lycee_S03.jpg",      url: "#work" },
-//         { title: "À bout d'bras : la petite histoire d'un patrimoine festif!", thumb: "assets/aboutdebrasfestif.jpg", url: "#work" },
-//         { title: "Papa(s)",     thumb: "assets/papas.jpg",     url: "#work" },
-//         { title: "Neglected", thumb: "assets/neglected.jpg",    url: "#work" },
-//         { title: "Plaza Plaisir : Season 1 (promos)", thumb: "assets/plaza_plaisir2.jpg",    url: "#work" },
-//         ]);
-//
-//         // 2) Build the reel
-//         (function initReel(){
-//         const track = document.getElementById('reelTrack');
-//         const mask  = track?.closest('.reel__mask');
-//         if (!track || !mask) return;
-//
-//         // Render a single set (no lazyload to avoid start delay)
-//         const render = arr => arr.map(p => `
-//     <li class="reel__item">
-//       <div class="reel__thumb" href="${p.url}" aria-label="${p.title}">
-//         <img src="${p.thumb}" alt="${p.title} — subtitling" width="320" height="180" decoding="async">
-//       </div>
-//       <span class="reel__title">${p.title}</span>
-//     </li>
-//   `).join('');
-//
-//         function build() {
-//         // Reset to one set
-//         track.classList.remove('is-ready');
-//         track.innerHTML = render(subtitleProjects);
-//
-//         // Duplicate until the track exceeds ~2× viewport width
-//         const vw = mask.clientWidth;
-//         let TW = track.scrollWidth;
-//         const oneSet = track.innerHTML;
-//         let safety = 16; // avoid runaway loops
-//
-//         while (TW < vw * 2.1 && safety-- > 0) {
-//         track.insertAdjacentHTML('beforeend', oneSet);
-//         TW = track.scrollWidth;
-//     }
-//
-//         // Seamless distance = half of final width
-//         const distance = track.scrollWidth / 2; // px
-//         track.style.setProperty('--reel-distance', distance + 'px');
-//
-//         // SPEED: either respect CSS variable or compute in JS
-//         if (!USE_CSS_SPEED) {
-//         const seconds = Math.max(
-//         22,
-//         Math.round(distance / BASE_PX_PER_SEC) * SPEED_MULTIPLIER
-//         );
-//         track.style.setProperty('--reel-speed', seconds + 's');
-//     } else {
-//         // Make sure we don't accidentally keep an old JS override
-//         track.style.removeProperty('--reel-speed');
-//     }
-//
-//         // Start animation (constant speed is ensured by CSS: linear)
-//         track.classList.add('is-ready');
-//
-//
-//     }
-//
-//         build();
-//
-//             // 🧠 Pause animation only when hovering over a thumbnail
-//             track.addEventListener('mouseover', e => {
-//                 if (e.target.closest('.reel__thumb')) {
-//                     track.style.animationPlayState = 'paused';
-//                 }
-//             });
-//             track.addEventListener('mouseout', e => {
-//                 if (e.target.closest('.reel__thumb')) {
-//                     track.style.animationPlayState = 'running';
-//                 }
-//             });
-//
-//         // Rebuild on resize (debounced by rAF)
-//         let raf;
-//         window.addEventListener('resize', () => {
-//         cancelAnimationFrame(raf);
-//         raf = requestAnimationFrame(build);
-//     });
-//     })();
-//
-//
-// });
 
 // SUBTITLING CAROUSEL — robust build + drag + infinite wrap
 window.addEventListener('DOMContentLoaded', () => {
@@ -551,283 +340,7 @@ window.addEventListener('DOMContentLoaded', () => {
         return track;
     }
 
-    // function initInfiniteReel(containerSel){
-    //     const container = document.querySelector(containerSel);
-    //     if (!container) return;
-    //
-    //     const mask  = container.querySelector('.reel__mask');
-    //     const track = container.querySelector('.reel__track');
-    //     if (!mask || !track) return;
-    //
-    //     const baseHTML = track.innerHTML.trim();
-    //     if (!baseHTML) return; // nothing to loop — bail gracefully
-    //
-    //     // Duplicate 3× for seamless wrap
-    //     track.innerHTML = baseHTML + baseHTML + baseHTML;
-    //
-    //     let oneSetWidth = 0;
-    //     let isDragging = false, dragMoved = false;
-    //     let startX = 0, startLeft = 0;
-    //
-    //     const measure = () => { oneSetWidth = track.scrollWidth / 3; };
-    //     const seatMiddle = () => { mask.scrollLeft = oneSetWidth; };
-    //     const wrapIfNeeded = () => {
-    //         if (mask.scrollLeft <= 0) mask.scrollLeft += oneSetWidth;
-    //         else if (mask.scrollLeft >= oneSetWidth * 2) mask.scrollLeft -= oneSetWidth;
-    //     };
 
-
-    //     // Drag (pointer) support
-    //     const getX = (e) => ('clientX' in e ? e.clientX : (e.touches?.[0]?.clientX || 0));
-    //     function onDown(e){
-    //         isDragging = true; dragMoved = false;
-    //         startX = getX(e); startLeft = mask.scrollLeft;
-    //         mask.classList.add('is-dragging');
-    //         if (e.pointerId != null && mask.setPointerCapture) mask.setPointerCapture(e.pointerId);
-    //     }
-    //     function onMove(e){
-    //         if (!isDragging) return;
-    //         const dx = getX(e) - startX;
-    //         if (Math.abs(dx) > 3) dragMoved = true;
-    //         mask.scrollLeft = startLeft - dx;
-    //         wrapIfNeeded();
-    //     }
-    //     function onUp(e){
-    //         if (!isDragging) return;
-    //         isDragging = false; mask.classList.remove('is-dragging');
-    //         if (dragMoved){
-    //             const a = e.target.closest('a');
-    //             if (a) a.addEventListener('click', (ev)=>{ ev.preventDefault(); ev.stopPropagation(); }, { once:true, capture:true });
-    //         }
-    //     }
-    //
-    //     // Wheel → horizontal
-    //     function onWheel(e){
-    //         if (Math.abs(e.deltaY) > Math.abs(e.deltaX)){
-    //             e.preventDefault();
-    //             mask.scrollLeft += e.deltaY;
-    //             wrapIfNeeded();
-    //         }
-    //     }
-    //
-    //     // Re-seat after images and on resize
-    //     function afterImages(cb){
-    //         const imgs = track.querySelectorAll('img');
-    //         if (!imgs.length) return cb();
-    //         let left = imgs.length;
-    //         imgs.forEach(img => {
-    //             if (img.complete) { if (--left === 0) cb(); }
-    //             else img.addEventListener('load', () => { if (--left === 0) cb(); }, { once:true });
-    //         });
-    //     }
-    //
-    //     function setup(){
-    //         measure();
-    //         seatMiddle();
-    //     }
-    //
-    //     // Listeners
-    //     mask.addEventListener('pointerdown', onDown);
-    //     mask.addEventListener('pointermove', onMove);
-    //     mask.addEventListener('pointerup', onUp);
-    //     mask.addEventListener('pointercancel', onUp);
-    //     mask.addEventListener('mouseleave', onUp);
-    //
-    //     mask.addEventListener('touchstart', onDown, { passive:true });
-    //     mask.addEventListener('touchmove', onMove, { passive:true });
-    //     mask.addEventListener('touchend', onUp);
-    //
-    //     mask.addEventListener('wheel', onWheel, { passive:false });
-    //     mask.addEventListener('scroll', wrapIfNeeded, { passive:true });
-    //
-    //     let raf;
-    //     window.addEventListener('resize', () => {
-    //         cancelAnimationFrame(raf);
-    //         raf = requestAnimationFrame(() => {
-    //             const ratio = oneSetWidth ? (mask.scrollLeft % oneSetWidth) / oneSetWidth : 0;
-    //             measure(); seatMiddle(); mask.scrollLeft += ratio * oneSetWidth;
-    //         });
-    //     });
-    //
-    //     document.addEventListener('visibilitychange', () => {
-    //         if (document.visibilityState === 'visible') seatMiddle();
-    //     });
-    //
-    //     afterImages(setup);
-    //     setup();
-    // }
-
-    // function initInfiniteReel(containerSel){
-    //     const container = document.querySelector(containerSel);
-    //     if (!container) return;
-    //
-    //     const mask  = container.querySelector('.reel__mask');
-    //     const track = container.querySelector('.reel__track');
-    //     if (!mask || !track) return;
-    //
-    //     const baseHTML = track.innerHTML.trim();
-    //     if (!baseHTML) return; // nothing to loop
-    //
-    //     // Duplicate 3× for seamless wrap
-    //     track.innerHTML = baseHTML + baseHTML + baseHTML;
-    //
-    //     let oneSetWidth = 0;
-    //     let isDragging = false, dragMoved = false;
-    //     let startX = 0, startLeft = 0;
-    //
-    //     // ===== Auto scroll state =====
-    //     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    //     let rafId = null;
-    //     let lastTs = 0;
-    //     let pxPerSec = 40; // feel free to tweak (e.g., 60–120)
-    //     let isPaused = false;
-    //
-    //     const measure = () => { oneSetWidth = track.scrollWidth / 3; };
-    //     const seatMiddle = () => { mask.scrollLeft = oneSetWidth; };
-    //     const wrapIfNeeded = () => {
-    //         if (mask.scrollLeft <= 0) mask.scrollLeft += oneSetWidth;
-    //         else if (mask.scrollLeft >= oneSetWidth * 2) mask.scrollLeft -= oneSetWidth;
-    //     };
-    //
-    //     // ===== Auto scroll loop (requestAnimationFrame) =====
-    //     function tick(ts){
-    //         if (isPaused || isDragging || reduceMotion) {
-    //             lastTs = ts;
-    //             rafId = requestAnimationFrame(tick);
-    //             return;
-    //         }
-    //         if (!lastTs) lastTs = ts;
-    //         const dt = (ts - lastTs) / 1000; // seconds
-    //         lastTs = ts;
-    //
-    //         mask.scrollLeft += pxPerSec * dt;
-    //         wrapIfNeeded();
-    //         rafId = requestAnimationFrame(tick);
-    //     }
-    //
-    //     function startAuto(){
-    //         if (reduceMotion) return; // honor the user’s setting
-    //         if (rafId == null) {
-    //             lastTs = 0;
-    //             rafId = requestAnimationFrame(tick);
-    //         }
-    //     }
-    //
-    //     function stopAuto(){
-    //         if (rafId != null) {
-    //             cancelAnimationFrame(rafId);
-    //             rafId = null;
-    //         }
-    //     }
-    //
-    //     // Rather than stopping the loop entirely on hover, we flag pause
-    //     function pauseAuto(){ isPaused = true; }
-    //     function resumeAuto(){ isPaused = false; }
-    //
-    //     // ===== Drag (pointer/touch) =====
-    //     const getX = (e) => ('clientX' in e ? e.clientX : (e.touches?.[0]?.clientX || 0));
-    //
-    //     function onDown(e){
-    //         isDragging = true; dragMoved = false;
-    //         startX = getX(e); startLeft = mask.scrollLeft;
-    //         mask.classList.add('is-dragging');
-    //         pauseAuto(); // pause while dragging
-    //         if (e.pointerId != null && mask.setPointerCapture) mask.setPointerCapture(e.pointerId);
-    //     }
-    //     function onMove(e){
-    //         if (!isDragging) return;
-    //         const dx = getX(e) - startX;
-    //         if (Math.abs(dx) > 3) dragMoved = true;
-    //         mask.scrollLeft = startLeft - dx;
-    //         wrapIfNeeded();
-    //     }
-    //     function onUp(e){
-    //         if (!isDragging) return;
-    //         isDragging = false; mask.classList.remove('is-dragging');
-    //         // if dragged, absorb the click on the link under the cursor
-    //         if (dragMoved){
-    //             const a = e.target.closest('a');
-    //             if (a) a.addEventListener('click', (ev)=>{ ev.preventDefault(); ev.stopPropagation(); }, { once:true, capture:true });
-    //         }
-    //         resumeAuto();
-    //     }
-    //
-    //     // Wheel → horizontal; pause briefly while user interacts
-    //     let wheelPauseTimer = null;
-    //     function onWheel(e){
-    //         if (Math.abs(e.deltaY) > Math.abs(e.deltaX)){
-    //             e.preventDefault();
-    //             mask.scrollLeft += e.deltaY;
-    //             wrapIfNeeded();
-    //             pauseAuto();
-    //             clearTimeout(wheelPauseTimer);
-    //             wheelPauseTimer = setTimeout(resumeAuto, 400);
-    //         }
-    //     }
-    //
-    //     // Build helpers
-    //     function afterImages(cb){
-    //         const imgs = track.querySelectorAll('img');
-    //         if (!imgs.length) return cb();
-    //         let left = imgs.length;
-    //         imgs.forEach(img => {
-    //             if (img.complete) { if (--left === 0) cb(); }
-    //             else img.addEventListener('load', () => { if (--left === 0) cb(); }, { once:true });
-    //         });
-    //     }
-    //
-    //     // Init / listeners
-    //     function setup(){
-    //         measure();
-    //         seatMiddle();
-    //         startAuto();
-    //     }
-    //
-    //     // Hover pause (desktop)
-    //     mask.addEventListener('mouseenter', pauseAuto);
-    //     mask.addEventListener('mouseleave', resumeAuto);
-    //
-    //     // Drag
-    //     mask.addEventListener('pointerdown', onDown);
-    //     mask.addEventListener('pointermove', onMove);
-    //     mask.addEventListener('pointerup', onUp);
-    //     mask.addEventListener('pointercancel', onUp);
-    //     mask.addEventListener('mouseleave', onUp); // safety
-    //
-    //     mask.addEventListener('touchstart', onDown, { passive:true });
-    //     mask.addEventListener('touchmove', onMove, { passive:true });
-    //     mask.addEventListener('touchend', onUp);
-    //
-    //     // Wheel
-    //     mask.addEventListener('wheel', onWheel, { passive:false });
-    //
-    //     // Keep wrapping on any scroll (programmatic or user)
-    //     mask.addEventListener('scroll', wrapIfNeeded, { passive:true });
-    //
-    //     // Resize: preserve relative position
-    //     let resizeRaf;
-    //     window.addEventListener('resize', () => {
-    //         cancelAnimationFrame(resizeRaf);
-    //         resizeRaf = requestAnimationFrame(() => {
-    //             const ratio = oneSetWidth ? (mask.scrollLeft % oneSetWidth) / oneSetWidth : 0;
-    //             measure(); seatMiddle(); mask.scrollLeft += ratio * oneSetWidth;
-    //         });
-    //     });
-    //
-    //     // Tab visibility wake-up
-    //     document.addEventListener('visibilitychange', () => {
-    //         if (document.visibilityState === 'visible') {
-    //             seatMiddle();
-    //             startAuto();
-    //         } else {
-    //             stopAuto();
-    //         }
-    //     });
-    //
-    //     // Run
-    //     afterImages(setup);
-    //     setup();
-    // }
 
     function initInfiniteReel() {
         // ⬇ change this to anything (even 1)
@@ -1124,62 +637,6 @@ document.addEventListener('DOMContentLoaded', () => {
     ro.observe(sub);
 });
 
-//
-// // Drag-to-scroll for horizontal reels (desktop + mobile)
-// (() => {
-//     function hook(el){
-//         let isDown = false, startX = 0, startLeft = 0, dragged = false;
-//
-//         const down = (e) => {
-//             // primary button / any pointer
-//             if (e.button !== undefined && e.button !== 0) return;
-//             isDown = true;
-//             dragged = false;
-//             startX = (e.clientX ?? e.pageX);
-//             startLeft = el.scrollLeft;
-//             el.classList.add('is-dragging');
-//             if (e.pointerId !== undefined && el.setPointerCapture) {
-//                 el.setPointerCapture(e.pointerId);
-//             }
-//         };
-//
-//         const move = (e) => {
-//             if (!isDown) return;
-//             const x = (e.clientX ?? e.pageX);
-//             const dx = x - startX;
-//             if (Math.abs(dx) > 3) dragged = true;
-//             el.scrollLeft = startLeft - dx;
-//         };
-//
-//         const up = (e) => {
-//             if (!isDown) return;
-//             isDown = false;
-//             el.classList.remove('is-dragging');
-//             if (e.pointerId !== undefined && el.releasePointerCapture) {
-//                 el.releasePointerCapture(e.pointerId);
-//             }
-//         };
-//
-//         // If user dragged, suppress clicks on links/images inside
-//         el.addEventListener('click', (e) => { if (dragged) e.preventDefault(); }, true);
-//
-//         el.addEventListener('pointerdown', down);
-//         window.addEventListener('pointermove', move);
-//         window.addEventListener('pointerup', up);
-//         window.addEventListener('pointercancel', up);
-//         window.addEventListener('pointerleave', up);
-//     }
-//
-//     function init(){
-//         document.querySelectorAll('[data-drag-scroll]').forEach(hook);
-//     }
-//
-//     (document.readyState === 'loading')
-//         ? document.addEventListener('DOMContentLoaded', init)
-//         : init();
-// })();
-//
-
 
 (function initInfiniteReel(selector){
     const scroller = document.querySelector(selector);
@@ -1333,6 +790,45 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 })('.subs-scroller');
 
+
+// 1) Clean any hash if the page loads with one (e.g., from external links)
+if (location.hash) {
+    history.replaceState(null, '', location.pathname + location.search);
+}
+
+// 2) Intercept same-page anchor clicks, scroll, then remove the hash
+document.addEventListener('click', (e) => {
+    const a = e.target.closest('a[href^="#"]');
+    if (!a) return;
+
+    const hash = a.getAttribute('href');
+    const id = decodeURIComponent(hash.slice(1));
+    const target = id ? document.getElementById(id) : null;
+
+    if (!target) return; // No matching element => let browser do its thing
+
+    e.preventDefault(); // stop the hash from hitting the URL
+    // Use your existing smooth scroll if you have one; otherwise:
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    // Remove the hash from the address bar (keeps history intact)
+    history.replaceState(null, '', location.pathname + location.search);
+});
+
+// Language switcher: load /fr or /en cleanly (no trailing filename)
+document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        e.preventDefault(); // stop default navigation
+
+        // Check current language
+        const isFrench = window.location.pathname.includes('/fr');
+        const newLang = isFrench ? '/en' : '/fr';
+
+        // Redirect cleanly to base + newLang (without extra filename or hash)
+        const base = window.location.origin;
+        window.location.href = base + newLang + '/';
+    });
+});
 
 
 
