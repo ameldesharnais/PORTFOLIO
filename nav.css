@@ -16,7 +16,8 @@ html
     position: fixed;
     inset: 0 0 auto 0;      /* top:0; left:0; right:0 */
     z-index: 1000;
-    background: #f15a24;;
+    /*background: #f15a24;;*/
+    background: transparent;
     padding: 1.5rem 3rem;
     display: grid;
     grid-template-columns: 1fr auto 1fr;
@@ -1328,6 +1329,27 @@ header
 .mobile-drawer .mobile-list{
     margin-top: 4.5rem !important;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
