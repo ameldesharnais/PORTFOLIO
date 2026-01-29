@@ -490,7 +490,8 @@ $(function () {
 // ==== Studio Recording 4×4 Grid ====
 const studioProjects = [
     // replace thumbs with your own; keep to 4:3 framing
-    { title: "Un souper presque parfait", img: "assets/uspp.jpg", tags: ["Voice-over"], year: "2024 - Present" },
+    { title: "Le beau chaos : Season 2",       img: "assets/beauchaos_saison2.jpeg", tags: ["Voice-over"], year: "2025" },
+	{ title: "Un souper presque parfait", img: "assets/uspp.jpg", tags: ["Voice-over"], year: "2024 - Present" },
     { title: "À la poursuite du rêve glacé",       img: "assets/poursuite_reve.jpg", tags: ["Voice-over"], year: "2025" },
     { title: "Complètement Lycée : Season 2",       img: "assets/completement_lycee_s2.jpeg", tags: ["Dubbing"], year: "2023" },
     { title: "Complètement Lycée : Season 3",         img: "assets/completement_lycee_s3.jpeg", tags: ["Dubbing"], year: "2024" },
