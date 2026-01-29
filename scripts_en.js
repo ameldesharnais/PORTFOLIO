@@ -215,7 +215,7 @@ const projects = [
         title: "DIVING CANADA - LYSANNE RICHARD",
         text: "Project at Réservoir Audio.",
         video: "https://player.vimeo.com/video/1120839490?h=85ec468af1",
-        tags: ["SOUND DESIGN"],
+        tags: ["SOUND DESIGN", "VOICE-OVER RECORDING"],
         width: 697,
         height: 392
     },
@@ -251,7 +251,7 @@ const projects = [
         title: "COMPLÈTEMENT LYCÉE - SEASON 2 & 3",
         text: "Project at Réservoir Audio.",
         video: "https://www.youtube.com/embed/qug2Xkqwe9Q?si=j0VC0iIUsSFfWg6S",
-        tags: ["DIALOG SYNCING", "DIALOG EDITING"],
+        tags: ["DIALOG SYNCING", "DIALOG EDITING", "FOLEY"],
         width: 560,
         height: 315
     },
