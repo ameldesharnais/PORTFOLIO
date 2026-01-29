@@ -213,7 +213,7 @@ const projects = [
         title: "PLONGEON CANADA - LYSANNE RICHARD",
         text: "Projet chez Réservoir Audio.",
         video: "https://player.vimeo.com/video/1120839490?h=85ec468af1",
-        tags: ["CONCEPTION SONORE"],
+        tags: ["CONCEPTION SONORE", "ENREGISTREMENT DE VOIX HORS CHAMP"],
         width: 697,
         height: 392
     },
@@ -249,7 +249,7 @@ const projects = [
         title: "COMPLÈTEMENT LYCÉE - SAISON 2 & 3",
         text: "Projet chez Réservoir Audio.",
         video: "https://www.youtube.com/embed/qug2Xkqwe9Q?si=j0VC0iIUsSFfWg6S",
-        tags: ["POSTSYNCHRONISTION", "MONTAGE DIALOGUE"],
+        tags: ["POSTSYNCHRONISTION", "MONTAGE DIALOGUE", "FOLEY"],
         width: 560,
         height: 315
     },
