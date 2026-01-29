@@ -486,10 +486,11 @@ $(function () {
 // ==== Studio Recording 4×4 Grid ====
 const studioProjects = [
     // replace thumbs with your own; keep to 4:3 framing
-    { title: "Un souper presque parfait", img: "assets/uspp.jpg", tags: ["Voix hors champ"], year: "2024 - Aujourd'hui" },
+    { title: "Le beau chaos : Saison 2",       img: "assets/beauchaos_saison2.jpeg", tags: ["Voix hors champ"], year: "2025" },
+	{ title: "Un souper presque parfait", img: "assets/uspp.jpg", tags: ["Voix hors champ"], year: "2024 - Aujourd'hui" },
     { title: "À la poursuite du rêve glacé",       img: "assets/poursuite_reve.jpg", tags: ["Voix hors champ"], year: "2025" },
-    { title: "Complètement Lycée : Season 2",       img: "assets/completement_lycee_s2.jpeg", tags: ["Doublage"], year: "2023" },
-    { title: "Complètement Lycée : Season 3",         img: "assets/completement_lycee_s3.jpeg", tags: ["Doublage"], year: "2024" },
+    { title: "Complètement Lycée : Saison 2",       img: "assets/completement_lycee_s2.jpeg", tags: ["Doublage"], year: "2023" },
+    { title: "Complètement Lycée : Saison 3",         img: "assets/completement_lycee_s3.jpeg", tags: ["Doublage"], year: "2024" },
     { title: "J'adore le jus",      img: "assets/JLJ.jpg", tags: ["Voix hors champ"], year: "2024" },
     { title: "Sports Experts",      img: "assets/sports_experts.jpeg", tags: ["Voix hors champ"], year: "2023 - Aujourd'hui" },
     { title: "Les Grands Ballets Canadiens",      img: "assets/LGBC.jpg", tags: ["Voix hors champ"], year: "2024 - Aujourd'hui" },
