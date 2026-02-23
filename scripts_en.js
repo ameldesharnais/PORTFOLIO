@@ -193,6 +193,15 @@ const projects = [
         height: 150
     },
 
+	{
+        title: "L'identité UQÀM",
+        text: "Project at Réservoir Audio.",
+        video: "https://www.youtube.com/embed/d9puTbXbMfM?si=fx71j8gg3qrBEEyc",
+        tags: ["SOUND DESIGN", "MIX"],
+        width: 697,
+        height: 392
+    },
+
     {
         title: "CAMAQ AEROSPATIALE",
         text: "Project at Réservoir Audio.",
